@@ -100,13 +100,9 @@ public class AlunoController extends HttpServlet {
 					} else {
 						out.println("<html>");
 						out.println("	<head>");
-						out.println("		<title>CMCP - Cadastrar Aluno</title>");
+						out.println("		<title>CMCP-Cadastrar Aluno</title>");
 						out.println("	</head>");
-						out.println("	<body>");
-						
-						
-						
-						
+						out.println("	<body>");				
 
 						out.println("		<strong>R.A.:</strong> <br>");
 						out.println("		" + aluno.getIdAluno() + "<br>");
