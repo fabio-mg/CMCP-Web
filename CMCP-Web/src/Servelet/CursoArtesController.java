@@ -87,6 +87,7 @@ public class CursoArtesController extends HttpServlet {
 				cursoArtes.incluir();
 			}
 
+			/*
 			out.println("<html>");
 			out.println("	<head>");
 			out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
@@ -95,8 +96,10 @@ public class CursoArtesController extends HttpServlet {
 			out.println("		Curso de Artes Cadastrado com sucesso.");
 			out.println("	</body>");
 			out.println("</html>");
+			*/
 		} else {
 			if (idCurso.trim().equals("")) {
+				/*
 				out.println("<html>");
 				out.println("	<head>");
 				out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
@@ -105,21 +108,21 @@ public class CursoArtesController extends HttpServlet {
 				out.println("		Código do curso não informado.");
 				out.println("	</body>");
 				out.println("</html>");
-				
+				*/
 			} else {
 				if (!cursoExiste) {
-					out.println("<html>");
+					/*out.println("<html>");
 					out.println("	<head>");
 					out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
 					out.println("	</head>");
 					out.println("	<body>");
 					out.println("		Curso não localizado. Código do curso Informado não existe.");
 					out.println("	</body>");
-					out.println("</html>");
+					out.println("</html>");*/
 				} else {
 					if (action.equals("excluir")) {
 						cursoArtes.excluir();
-						
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
@@ -127,9 +130,9 @@ public class CursoArtesController extends HttpServlet {
 						out.println("	<body>");
 						out.println("		Curso excluído com sucesso.");
 						out.println("	</body>");
-						out.println("</html>");
+						out.println("</html>");*/
 					} else {
-						out.println("<html>");
+						/*out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
 						out.println("	</head>");
@@ -175,12 +178,14 @@ public class CursoArtesController extends HttpServlet {
 						out.println("		" + cursoArtes.getLivros() + "<br>");
 
 
-						out.println("</body></html>");
+						out.println("</body></html>");*/
 					}
 				}
 			}
 
 		}
-
+		
+		RequestDispatcher view = request.getRequestDispatcher("CadastrarCursoArtes.jsp");
+		view.forward(request, response);
 	}
 }

@@ -87,6 +87,7 @@ public class CursoInformaticaController extends HttpServlet {
 				cursoInformatica.incluir();
 			}
 
+			/*
 			out.println("<html>");
 			out.println("	<head>");
 			out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -94,9 +95,10 @@ public class CursoInformaticaController extends HttpServlet {
 			out.println("	<body>");
 			out.println("		Curso de Informatica Cadastrado com sucesso.");
 			out.println("	</body>");
-			out.println("</html>");
+			out.println("</html>");*/
 		} else {
 			if (idCurso.trim().equals("")) {
+				/*
 				out.println("<html>");
 				out.println("	<head>");
 				out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -105,9 +107,10 @@ public class CursoInformaticaController extends HttpServlet {
 				out.println("		Código do curso não informado.");
 				out.println("	</body>");
 				out.println("</html>");
-				
+				*/
 			} else {
 				if (!cursoExiste) {
+					/*
 					out.println("<html>");
 					out.println("	<head>");
 					out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -116,10 +119,11 @@ public class CursoInformaticaController extends HttpServlet {
 					out.println("		Curso não localizado. Código do curso Informado não existe.");
 					out.println("	</body>");
 					out.println("</html>");
+					*/
 				} else {
 					if (action.equals("excluir")) {
 						cursoInformatica.excluir();
-						
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -128,7 +132,9 @@ public class CursoInformaticaController extends HttpServlet {
 						out.println("		Curso excluído com sucesso.");
 						out.println("	</body>");
 						out.println("</html>");
+						*/
 					} else {
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -175,11 +181,14 @@ public class CursoInformaticaController extends HttpServlet {
 
 
 						out.println("</body></html>");
+						*/
 					}
 				}
 			}
 
 		}
-
+		
+		RequestDispatcher view = request.getRequestDispatcher("CadastrarCursoInformatica.jsp");
+		view.forward(request, response);
 	}
 }

@@ -58,6 +58,7 @@ public class AlunoController extends HttpServlet {
 				aluno.incluir();
 			}
 			
+			/*
 			out.println("<html>");
 			out.println("	<head>");
 			out.println("		<title>CMCP - Cadastrar Aluno</title>");
@@ -65,9 +66,10 @@ public class AlunoController extends HttpServlet {
 			out.println("	<body>");
 			out.println("		Aluno Cadastrado com sucesso.");
 			out.println("	</body>");
-			out.println("</html>");
+			out.println("</html>");*/ 
 		} else {
 			if (ra.trim().equals("")) {
+				/*
 				out.println("<html>");
 				out.println("	<head>");
 				out.println("		<title>CMCP - Cadastrar Aluno</title>");
@@ -76,8 +78,10 @@ public class AlunoController extends HttpServlet {
 				out.println("		R.A. não foi informado. " + action);
 				out.println("	</body>");
 				out.println("</html>");
+				*/
 			} else {
 				if (!alunoExiste) {
+					/*
 					out.println("<html>");
 					out.println("	<head>");
 					out.println("		<title>CMCP - Cadastrar Aluno</title>");
@@ -86,9 +90,11 @@ public class AlunoController extends HttpServlet {
 					out.println("		Aluno não localizado. R.A. Informado não existe.");
 					out.println("	</body>");
 					out.println("</html>");
+					*/
 				} else {
 					if (action.equals("excluir")) {
 						aluno.excluir();
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Aluno</title>");
@@ -96,17 +102,14 @@ public class AlunoController extends HttpServlet {
 						out.println("	<body>");
 						out.println("		Aluno excluído com sucesso.");
 						out.println("	</body>");
-						out.println("</html>");
+						out.println("</html>");*/
 					} else {
+						/*
 						out.println("<html>");
 						out.println("	<head>");
-						out.println("		<title>CMCP - Cadastrar Aluno</title>");
+						out.println("		<title>CMCP-Cadastrar Aluno</title>");
 						out.println("	</head>");
-						out.println("	<body>");
-						
-						
-						
-						
+						out.println("	<body>");				
 
 						out.println("		<strong>R.A.:</strong> <br>");
 						out.println("		" + aluno.getIdAluno() + "<br>");
@@ -133,11 +136,14 @@ public class AlunoController extends HttpServlet {
 						out.println("		" + aluno.getLogin() + "<br>");
 
 						out.println("</body></html>");
+						*/
 					}
 				}
 			}
 
 		}
-
+		
+		RequestDispatcher view = request.getRequestDispatcher("CadastrarAluno.jsp");
+		view.forward(request, response); 
 	}
 }
