@@ -85,7 +85,7 @@ public class Aluno {
 		this.senha = senha;
 	}
 	
-	private AlunoTO getAlunoTO() {
+	public AlunoTO getAlunoTO() {
 		AlunoTO to = new AlunoTO();
 		
 		to.setIdAluno(idAluno);

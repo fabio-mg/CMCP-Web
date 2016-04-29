@@ -1,19 +1,17 @@
 package Servelet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import Modelo.CursoInformatica;
 
@@ -40,8 +38,6 @@ public class CursoInformaticaController extends HttpServlet {
 		String valor = request.getParameter("valor").trim();
 		String numLab = request.getParameter("numLab").trim();
 		String softwares = request.getParameter("softwares").trim();
-
-		PrintWriter out = response.getWriter();
 
 		// Se foi informado o ID então carrega o aluno
 		if (!idCurso.trim().equals("")) {
@@ -87,6 +83,7 @@ public class CursoInformaticaController extends HttpServlet {
 				cursoInformatica.incluir();
 			}
 
+			/*
 			out.println("<html>");
 			out.println("	<head>");
 			out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -94,9 +91,10 @@ public class CursoInformaticaController extends HttpServlet {
 			out.println("	<body>");
 			out.println("		Curso de Informatica Cadastrado com sucesso.");
 			out.println("	</body>");
-			out.println("</html>");
+			out.println("</html>");*/
 		} else {
 			if (idCurso.trim().equals("")) {
+				/*
 				out.println("<html>");
 				out.println("	<head>");
 				out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -105,9 +103,10 @@ public class CursoInformaticaController extends HttpServlet {
 				out.println("		Código do curso não informado.");
 				out.println("	</body>");
 				out.println("</html>");
-				
+				*/
 			} else {
 				if (!cursoExiste) {
+					/*
 					out.println("<html>");
 					out.println("	<head>");
 					out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -116,10 +115,11 @@ public class CursoInformaticaController extends HttpServlet {
 					out.println("		Curso não localizado. Código do curso Informado não existe.");
 					out.println("	</body>");
 					out.println("</html>");
+					*/
 				} else {
 					if (action.equals("excluir")) {
 						cursoInformatica.excluir();
-						
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -128,7 +128,9 @@ public class CursoInformaticaController extends HttpServlet {
 						out.println("		Curso excluído com sucesso.");
 						out.println("	</body>");
 						out.println("</html>");
+						*/
 					} else {
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Informatica</title>");
@@ -175,11 +177,15 @@ public class CursoInformaticaController extends HttpServlet {
 
 
 						out.println("</body></html>");
+						*/
 					}
 				}
 			}
 
 		}
-
+		
+		request.setAttribute("aluno", cursoInformatica.getCursoInformaticaTO());
+		RequestDispatcher view = request.getRequestDispatcher("CadastrarCursoInformatica.jsp");
+		view.forward(request, response);
 	}
 }

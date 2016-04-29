@@ -1,20 +1,17 @@
 package Servelet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
 import Modelo.CursoArtes;
 
 @WebServlet("/manterCursoArtes")
@@ -40,8 +37,6 @@ public class CursoArtesController extends HttpServlet {
 		String valor = request.getParameter("valor").trim();
 		String descMat = request.getParameter("descMat").trim();
 		String livrosUtil = request.getParameter("livrosUtil").trim();
-
-		PrintWriter out = response.getWriter();
 
 		// Se foi informado o ID então carrega o aluno
 		if (!idCurso.trim().equals("")) {
@@ -87,6 +82,7 @@ public class CursoArtesController extends HttpServlet {
 				cursoArtes.incluir();
 			}
 
+			/*
 			out.println("<html>");
 			out.println("	<head>");
 			out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
@@ -95,8 +91,10 @@ public class CursoArtesController extends HttpServlet {
 			out.println("		Curso de Artes Cadastrado com sucesso.");
 			out.println("	</body>");
 			out.println("</html>");
+			*/
 		} else {
 			if (idCurso.trim().equals("")) {
+				/*
 				out.println("<html>");
 				out.println("	<head>");
 				out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
@@ -105,21 +103,21 @@ public class CursoArtesController extends HttpServlet {
 				out.println("		Código do curso não informado.");
 				out.println("	</body>");
 				out.println("</html>");
-				
+				*/
 			} else {
 				if (!cursoExiste) {
-					out.println("<html>");
+					/*out.println("<html>");
 					out.println("	<head>");
 					out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
 					out.println("	</head>");
 					out.println("	<body>");
 					out.println("		Curso não localizado. Código do curso Informado não existe.");
 					out.println("	</body>");
-					out.println("</html>");
+					out.println("</html>");*/
 				} else {
 					if (action.equals("excluir")) {
 						cursoArtes.excluir();
-						
+						/*
 						out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
@@ -127,9 +125,9 @@ public class CursoArtesController extends HttpServlet {
 						out.println("	<body>");
 						out.println("		Curso excluído com sucesso.");
 						out.println("	</body>");
-						out.println("</html>");
+						out.println("</html>");*/
 					} else {
-						out.println("<html>");
+						/*out.println("<html>");
 						out.println("	<head>");
 						out.println("		<title>CMCP - Cadastrar Curso de Artes</title>");
 						out.println("	</head>");
@@ -175,12 +173,15 @@ public class CursoArtesController extends HttpServlet {
 						out.println("		" + cursoArtes.getLivros() + "<br>");
 
 
-						out.println("</body></html>");
+						out.println("</body></html>");*/
 					}
 				}
 			}
 
 		}
-
+		
+		request.setAttribute("aluno", cursoArtes.getCursoArtesTO());
+		RequestDispatcher view = request.getRequestDispatcher("CursoArtesCadastrado.jsp");
+		view.forward(request, response);
 	}
 }
