@@ -9,7 +9,7 @@ import TO.AlunoTO;
 
 public class AlunoDAO {
 	public void incluir(AlunoTO to) {
-		String sqlStr = " Insert into TabAluno (Nome, Endereco, Tel_Num, email, rg, cpf, login, senha) "
+		String sqlStr = " Insert into TABALUNO (Nome, Endereco, Tel_Num, email, rg, cpf, login, senha) "
 				+ " Values (?, ?, ?, ?, ?, ?, ?, ?) ";
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
@@ -32,7 +32,7 @@ public class AlunoDAO {
 	}
 
 	public void atualizar(AlunoTO to) {
-		String sqlStr = " Update TabAluno Set " + " Nome = ? " + ",Endereco = ? " + ",Tel_Num = ?" + ",Email = ?"
+		String sqlStr = " Update TABALUNO Set " + " Nome = ? " + ",Endereco = ? " + ",Tel_Num = ?" + ",Email = ?"
 				+ ",RG = ?" + ",CPF = ?" + ",Login = ?" + ",Senha = ? " + " Where IDTabAluno = ? ";
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
@@ -55,7 +55,7 @@ public class AlunoDAO {
 	}
 
 	public void excluir(AlunoTO to) {
-		String sqlStr = " Delete From TabAluno " + 
+		String sqlStr = " Delete From TABALUNO " + 
 						" Where IDTabAluno = ? ";
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
@@ -71,7 +71,7 @@ public class AlunoDAO {
 
 	public AlunoTO carregar(int id) {
 		AlunoTO to = new AlunoTO();
-		String sqlStr = " Select * From TabAluno " +
+		String sqlStr = " Select * From TABALUNO " +
 					 	" Where IDTabAluno = ? ";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();

@@ -17,14 +17,14 @@ public class CursoDAO {
 				PreparedStatement stm = conn.prepareStatement(sqlStr);) {
 
 			stm.setString(1, to.getNome());
-			stm.setDate (2, new java.sql.Date(to.getDataInicio().getTimeInMillis()));
-			stm.setDate (3, new java.sql.Date(to.getDataTermino().getTimeInMillis()));
+			stm.setDate(2, new java.sql.Date(to.getDataInicio().getTimeInMillis()));
+			stm.setDate(3, new java.sql.Date(to.getDataTermino().getTimeInMillis()));
 			stm.setString(4, to.getHorario() );
 			stm.setInt(5, to.getNumeroVagas());			
 			stm.setBigDecimal(6, to.getValor());
 			stm.execute();
 			
-						
+			
 			to.setIdCurso(getLastID(conn));
 		} catch (SQLException e) {
 			e.printStackTrace();

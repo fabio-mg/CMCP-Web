@@ -14,11 +14,11 @@
 	<div class="container">
 		<h2>CMCP - Aluno Cadastrado com sucesso !</h2>		
 			<div class="form-group">
-				<label for="ra">R.A. : ${aluno.ra}</label>  
-			</div>		
+				<label for="ra">R.A. : ${aluno.idAluno}</label>  
+			</div>
 			<div class="form-group">
 				<label for="nome">Nome: ${aluno.nome}</label>
-			</div>		
+			</div>
 			<div class="form-group">
 				<label for="endereco">Endereço: ${aluno.endereco}</label>
 			</div>
@@ -29,10 +29,10 @@
 				<label for="email">E-Mail: ${aluno.email}</label>
 			</div>
 			<div class="form-group">
-				<label for="rg">RG: ${aluno.rg}</label>
+				<label for="rg">RG: ${aluno.RG}</label>
 			</div>
 			<div class="form-group">
-				<label for="cpf">CPF: ${aluno.cpf}</label>
+				<label for="cpf">CPF: ${aluno.CPF}</label>
 			</div>
 			<div class="form-group">
 				<label for="login">Login: ${aluno.login}</label>

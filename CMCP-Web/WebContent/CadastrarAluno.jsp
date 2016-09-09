@@ -51,9 +51,9 @@
 				<input type="text" class="form-control" id="senha" name="senha" placeholder="Senha">  
 			</div>
 	
-			<button type="submit" class="btn btn-default" name="action">Gravar</button>
-			<button type="submit" class="btn btn-default" name="action">Consultar</button>
-			<button type="submit" class="btn btn-default" name="action">Excluir</button>
+			<button type="submit" class="btn btn-default" name="action" value="gravar">Gravar</button>
+			<button type="submit" class="btn btn-default" name="action" value="consultar">Consultar</button>
+			<button type="submit" class="btn btn-default" name="action" value="excluir">Excluir</button>
 		</form>
 	</div>
 </body>

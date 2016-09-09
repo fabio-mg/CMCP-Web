@@ -1,4 +1,5 @@
 package Modelo;
+
 import DAO.CursoArtesDAO;
 import TO.CursoArtesTO;
 
@@ -101,6 +102,7 @@ public class CursoArtes extends Curso {
 		}
 	}
 	
+		
 	
 	@Override
 	public boolean equals(Object obj) {

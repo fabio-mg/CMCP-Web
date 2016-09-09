@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Geral.ConnectionFactory;
 import TO.CursoInformaticaTO;
@@ -84,5 +86,36 @@ public class CursoInformaticaDAO {
 		}
 		
 		return to;
+	}
+	
+	
+	public List<CursoInformaticaTO> carregarTodos() {
+		List<CursoInformaticaTO> toList = new ArrayList<CursoInformaticaTO>(); 
+		
+		String sqlStr = " Select * From TabCurso_Informatica ";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+			 PreparedStatement stm = conn.prepareStatement(sqlStr);) {
+			
+			try (ResultSet rs = stm.executeQuery();) {
+
+				while (rs.next()) {
+					CursoInformaticaTO to = new CursoInformaticaTO();
+					to.setIdCurso( rs.getInt("TabCurso_IDTabCurso") );
+					to.setIdCursoInformatica( rs.getInt("IdTabCursoInformatica") );
+					to.setNumeroLaboratorio( rs.getInt("Num_Laboratorio") );
+					to.setSoftwares( rs.getString("Softwares") );
+					toList.add(to);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}				
+			
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		return toList;
 	}
 }
